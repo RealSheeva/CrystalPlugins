@@ -50,6 +50,12 @@ import static net.runelite.client.plugins.crystalpotato.item.ItemRequirements.*;
 import  net.runelite.client.plugins.crystalpotato.item.ItemRequirement;
 
 
+import lombok.extern.slf4j.Slf4j;
+import org.pf4j.Extension;
+
+
+@Slf4j
+@Extension
 @PluginDescriptor(
         name = "A Crystal Potato",
         description = "I am de captain now.",

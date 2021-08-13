@@ -8,10 +8,15 @@ import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
 import net.runelite.client.plugins.PluginDescriptor;
 import net.runelite.client.ui.overlay.OverlayManager;
-
 import javax.inject.Inject;
 
 
+import lombok.extern.slf4j.Slf4j;
+import org.pf4j.Extension;
+
+
+@Slf4j
+@Extension
 @PluginDescriptor(
         name = "A Crystal Arrow",
         description = "Why fletch?",

@@ -18,6 +18,12 @@ import net.runelite.client.ui.overlay.OverlayManager;
 import javax.inject.Inject;
 
 
+import lombok.extern.slf4j.Slf4j;
+import org.pf4j.Extension;
+
+
+@Slf4j
+@Extension
 @PluginDescriptor(
         name = "A Crystal Idle",
         description = "r u afk?",
