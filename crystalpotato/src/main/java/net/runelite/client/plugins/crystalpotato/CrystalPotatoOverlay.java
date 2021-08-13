@@ -65,33 +65,81 @@ public class CrystalPotatoOverlay extends OverlayPanel {
 
         panelComponent.getChildren().add(LineComponent.builder().left("Gauntlet Plugin").leftColor(Color.CYAN).build());
 
-        //T2 weapon x1 -- 80 shards
-        //T3 weapon x2 -- 160 shards
-        //T1 full armor -- 120 shards
-        //T2 full additional -- 120 shards
-        Color color;
-        if(!this.plugin.boss_fight) {
-            if (!this.plugin.trip_two) {
-                //First back needs 220 shards for 1xT1 weapon, T1 full armor, +2 vials
-                if (plugin.collected_shards <= 220) {
-                    color = Color.RED;
-                } else {
-                    color = Color.GREEN;
-                }
-                panelComponent.getChildren().add(LineComponent.builder().left("Crystals (t1): " + Integer.toString(plugin.collected_shards - 220)).leftColor(color).build());
-            } else {
-                if (plugin.collected_shards <= 200) {
-                    color = Color.RED;
-                } else {
-                    color = Color.GREEN;
-                }
-                //Second back needs 80 for second weapon, plus additional 120 for our armor
-                panelComponent.getChildren().add(LineComponent.builder().left("Crystals (t2): " + Integer.toString(plugin.collected_shards - 200)).leftColor(color).build());
-            }
+        if(this.plugin.trip_two){
+            renderTwo();
+        }else if(this.plugin.boss_fight){
+            renderBoss();
         }else{
-            panelComponent.getChildren().add(LineComponent.builder().left("Good luck!").leftColor(Color.GREEN).build());
+            renderOne();
         }
         return super.render(graphics);
+    }
+
+
+    private void renderOne(){
+        Color color;
+        String addendum;
+        int shards = plugin.collected_shards;
+
+        //Weapon check (First prio)
+        if(shards >= 0) {
+            if (shards <= 80) {
+                color = Color.RED;
+                addendum = " - " + Integer.toString(shards) + "/80";
+            } else {
+                color = Color.GREEN;
+                addendum = " - 80/80";
+            }
+            panelComponent.getChildren().add(LineComponent.builder().left("T2 Weapon" + addendum).leftColor(color).build());
+        }
+        shards -= 80;
+
+        //Armor check(s) - 120 total
+        if(shards > 0) {
+            if (shards <= 120) {
+                color = Color.RED;
+                addendum = " - " + Integer.toString(shards) + "/120";
+            } else {
+                color = Color.GREEN;
+                addendum = " - 120/120";
+            }
+            panelComponent.getChildren().add(LineComponent.builder().left("Armor " + addendum).leftColor(color).build());
+        }
+        shards -= 120;
+
+        if(shards > 0){
+            addendum = Integer.toString(shards);
+            panelComponent.getChildren().add(LineComponent.builder().left("Extra - " + addendum).leftColor(Color.GREEN).build());
+        }
+
+    }
+
+    private void renderTwo(){
+        Color color;
+        String addendum;
+        int shards = plugin.collected_shards;
+
+        if(shards > 0) {
+            if (shards <= 80) {
+                color = Color.RED;
+                addendum = " - " + Integer.toString(shards) + "/80";
+            } else {
+                color = Color.GREEN;
+                addendum = " - 80/80";
+            }
+            panelComponent.getChildren().add(LineComponent.builder().left("Weapon Upgrades - " + addendum).leftColor(color).build());
+        }
+        shards -= 80;
+
+        if(shards > 0){
+            addendum = Integer.toString(shards);
+            panelComponent.getChildren().add(LineComponent.builder().left("Extra - " + addendum).leftColor(Color.GREEN).build());
+        }
+
+    }
+
+    private void renderBoss(){
+            panelComponent.getChildren().add(LineComponent.builder().left("Good Luck! :)").leftColor(Color.GREEN).build());
     }
 
 

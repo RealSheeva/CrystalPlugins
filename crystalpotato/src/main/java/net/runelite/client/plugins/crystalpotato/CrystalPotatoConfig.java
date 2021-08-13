@@ -22,13 +22,13 @@ public interface CrystalPotatoConfig extends Config
 
     @ConfigItem(
             position = 1,
-            keyName = "rangedThreshold",
+            keyName = "numberOfAttacks",
             name = "# of attacks",
             description = "Threshold for Ranged (0 to disable)"
     )
-    default int rangedThreshold()
+    default int numberOfAttacks()
     {
-        return 0;
+        return 6;
 
     }
 }

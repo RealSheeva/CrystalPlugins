@@ -34,13 +34,13 @@ import net.runelite.api.ItemID;
 enum SpecialWeapon
 {
 	BASE("Base", ItemID.RUNE_CROSSBOW, false, (c) -> 0),
-	CORRUPTED_STAFF_PERFECTED("Corrupted Staff", ItemID.CORRUPTED_STAFF_PERFECTED, false, CrystalPotatoConfig::rangedThreshold),
-	CORRUPTED_HALBERD_PERFECTED("Corrupted Halberd", ItemID.CORRUPTED_HALBERD_PERFECTED, false, CrystalPotatoConfig::rangedThreshold),
-	CORRUPTED_BOW_PERFECTED("Corrupted Bow", ItemID.CORRUPTED_BOW_PERFECTED, false, CrystalPotatoConfig::rangedThreshold),
-	CRYSTAL_STAFF_PERFECTED("Corrupted Staff", ItemID.CRYSTAL_STAFF_PERFECTED, false, CrystalPotatoConfig::rangedThreshold),
-	CRYSTAL_HALBERD_PERFECTED("Corrupted Halberd", ItemID.CRYSTAL_HALBERD_PERFECTED, false, CrystalPotatoConfig::rangedThreshold),
-	CRYSTAL_BOW_PERFECTED("Corrupted Bow", ItemID.CRYSTAL_BOW_PERFECTED, false, CrystalPotatoConfig::rangedThreshold),
-	CRYSTAL_BOW_BASIC("Basic Bow", ItemID.CRYSTAL_BOW_BASIC, false, CrystalPotatoConfig::rangedThreshold);
+	CORRUPTED_STAFF_PERFECTED("Corrupted Staff", ItemID.CORRUPTED_STAFF_PERFECTED, false, CrystalPotatoConfig::numberOfAttacks),
+	CORRUPTED_HALBERD_PERFECTED("Corrupted Halberd", ItemID.CORRUPTED_HALBERD_PERFECTED, false, CrystalPotatoConfig::numberOfAttacks),
+	CORRUPTED_BOW_PERFECTED("Corrupted Bow", ItemID.CORRUPTED_BOW_PERFECTED, false, CrystalPotatoConfig::numberOfAttacks),
+	CRYSTAL_STAFF_PERFECTED("Corrupted Staff", ItemID.CRYSTAL_STAFF_PERFECTED, false, CrystalPotatoConfig::numberOfAttacks),
+	CRYSTAL_HALBERD_PERFECTED("Corrupted Halberd", ItemID.CRYSTAL_HALBERD_PERFECTED, false, CrystalPotatoConfig::numberOfAttacks),
+	CRYSTAL_BOW_PERFECTED("Corrupted Bow", ItemID.CRYSTAL_BOW_PERFECTED, false, CrystalPotatoConfig::numberOfAttacks),
+	CRYSTAL_BOW_BASIC("Basic Bow", ItemID.CRYSTAL_BOW_BASIC, false, CrystalPotatoConfig::numberOfAttacks);
 
 	private final String name;
 	private final int itemID;
