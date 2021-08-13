@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2019 Owain van Brakel <https://github.com/Owain94>
+ * Copyright (c) 2018, Lotto <https://github.com/devLotto>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,25 +22,58 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
+package net.runelite.client.plugins.crystalpotato.item;
 
-object ProjectVersions {
-    const val openosrsVersion = "4.9.10"
-    const val apiVersion = "^1.0.0"
-}
+import net.runelite.api.Client;
+import net.runelite.api.Item;
 
-object Libraries {
-    private object Versions {
-        const val guice = "4.2.2"
-        const val javax = "1.3.2"
-        const val lombok = "1.18.10"
-        const val pf4j = "3.2.0"
-        const val slf4j = "1.7.30"
-    }
+public class AllRequirementsCollection implements ItemRequirement
+{
+	private String name;
+	private ItemRequirement[] requirements;
 
-    const val guice = "com.google.inject:guice:${Versions.guice}:no_aop"
-    const val javax = "javax.annotation:javax.annotation-api:${Versions.javax}"
-    const val lombok = "org.projectlombok:lombok:${Versions.lombok}"
-    const val pf4j = "org.pf4j:pf4j:${Versions.pf4j}"
-    const val slf4j = "org.slf4j:slf4j-api:${Versions.slf4j}"
+	public AllRequirementsCollection(String name, ItemRequirement... requirements)
+	{
+		this.name = name;
+		this.requirements = requirements;
+	}
 
+	public AllRequirementsCollection(ItemRequirement... requirements)
+	{
+		this("N/A", requirements);
+	}
+
+	@Override
+	public boolean fulfilledBy(int itemId)
+	{
+		for (ItemRequirement requirement : requirements)
+		{
+			if (requirement.fulfilledBy(itemId))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	@Override
+	public boolean fulfilledBy(Item[] items)
+	{
+		for (ItemRequirement requirement : requirements)
+		{
+			if (!requirement.fulfilledBy(items))
+			{
+				return false;
+			}
+		}
+
+		return true;
+	}
+
+	@Override
+	public String getCollectiveName(Client client)
+	{
+		return name;
+	}
 }

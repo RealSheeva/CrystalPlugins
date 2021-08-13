@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018, Andrew EP | ElPinche256 <https://github.com/ElPinche256>
+ * Copyright (c) 2018, Lotto <https://github.com/devLotto>
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -22,24 +22,16 @@
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package com.example.javaexample;
+package net.runelite.client.plugins.crystalpotato.item;
 
-import net.runelite.client.config.Config;
-import net.runelite.client.config.ConfigGroup;
-import net.runelite.client.config.ConfigItem;
+import net.runelite.api.Client;
+import net.runelite.api.Item;
 
-@ConfigGroup("JavaExampleConfig")
-
-public interface JavaExampleConfig extends Config
+public interface ItemRequirement
 {
-	@ConfigItem(
-		keyName = "example",
-		name = "Example config item",
-		description = "Example",
-		position = 0
-	)
-	default boolean example()
-	{
-		return true;
-	}
+	boolean fulfilledBy(int itemId);
+
+	boolean fulfilledBy(Item[] items);
+
+	String getCollectiveName(Client client);
 }

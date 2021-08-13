@@ -23,10 +23,11 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-rootProject.name = "external plugins example"
+rootProject.name = "CrystalPlugins"
 
-include(":kotlinexample")
-include(":javaexample")
+include(":crystalarrow")
+include(":crystalidle")
+include(":crystalpotato")
 
 for (project in rootProject.children) {
     project.apply {
