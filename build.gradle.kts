@@ -90,7 +90,7 @@ subprojects {
             doLast {
                 copy {
                     from("./build/libs/")
-                    into(System.getProperty("user.home") + ".openosrs/plugins")
+                    into(System.getProperty("user.home") + "/.openosrs/plugins")
                 }
             }
         }
