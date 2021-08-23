@@ -63,7 +63,7 @@ public class CrystalPotatoOverlay extends OverlayPanel {
         Item[] inventoryItems = plugin.getInventoryItems();
         //final Item[] allItems = plugin.getAllItems();
 
-        panelComponent.getChildren().add(LineComponent.builder().left("Gauntlet Plugin").leftColor(Color.CYAN).build());
+        panelComponent.getChildren().add(LineComponent.builder().left("Gauntlet Plugin - T2").leftColor(Color.CYAN).build());
 
         if(this.plugin.trip_two){
             renderTwo();
@@ -81,36 +81,19 @@ public class CrystalPotatoOverlay extends OverlayPanel {
         String addendum;
         int shards = plugin.collected_shards;
 
-        //Weapon check (First prio)
+
+        //Shards check
         if(shards >= 0) {
-            if (shards <= 80) {
+            if (shards <= 100) {
                 color = Color.RED;
-                addendum = " - " + Integer.toString(shards) + "/80";
+                addendum = Integer.toString(shards) + "/100";
             } else {
                 color = Color.GREEN;
-                addendum = " - 80/80";
+                addendum = " - 100/100";
             }
-            panelComponent.getChildren().add(LineComponent.builder().left("T2 Weapon" + addendum).leftColor(color).build());
+            panelComponent.getChildren().add(LineComponent.builder().left("T2 Weapon - " + addendum).leftColor(color).build());
         }
-        shards -= 80;
 
-        //Armor check(s) - 120 total
-        if(shards > 0) {
-            if (shards <= 120) {
-                color = Color.RED;
-                addendum = " - " + Integer.toString(shards) + "/120";
-            } else {
-                color = Color.GREEN;
-                addendum = " - 120/120";
-            }
-            panelComponent.getChildren().add(LineComponent.builder().left("Armor " + addendum).leftColor(color).build());
-        }
-        shards -= 120;
-
-        if(shards > 0){
-            addendum = Integer.toString(shards);
-            panelComponent.getChildren().add(LineComponent.builder().left("Extra - " + addendum).leftColor(Color.GREEN).build());
-        }
 
     }
 
@@ -120,20 +103,14 @@ public class CrystalPotatoOverlay extends OverlayPanel {
         int shards = plugin.collected_shards;
 
         if(shards > 0) {
-            if (shards <= 80) {
+            if (shards <= 420) {
                 color = Color.RED;
-                addendum = " - " + Integer.toString(shards) + "/80";
+                addendum = Integer.toString(shards) + "/420";
             } else {
                 color = Color.GREEN;
-                addendum = " - 80/80";
+                addendum = " - 420/420";
             }
-            panelComponent.getChildren().add(LineComponent.builder().left("Weapon Upgrades - " + addendum).leftColor(color).build());
-        }
-        shards -= 80;
-
-        if(shards > 0){
-            addendum = Integer.toString(shards);
-            panelComponent.getChildren().add(LineComponent.builder().left("Extra - " + addendum).leftColor(Color.GREEN).build());
+            panelComponent.getChildren().add(LineComponent.builder().left("BIG DICK Upgrades - " + addendum).leftColor(color).build());
         }
 
     }
