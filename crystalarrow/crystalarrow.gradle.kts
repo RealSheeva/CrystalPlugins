@@ -25,7 +25,7 @@ import ProjectVersions.openosrsVersion
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-version = "1.0.7"
+version = "1.0.8"
 
 project.extra["PluginName"] = "A Crystal Arrow" // This is the name that is used in the external plugin manager panel
 project.extra["PluginDescription"] = "I am de captain now." // This is the description that is used in the external plugin manager panel

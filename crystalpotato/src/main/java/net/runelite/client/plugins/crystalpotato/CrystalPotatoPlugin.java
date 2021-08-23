@@ -359,9 +359,9 @@ public class CrystalPotatoPlugin extends Plugin{
         ItemContainer inventory = client.getItemContainer(InventoryID.INVENTORY);
 
         //Check for all 3 pieces
-        this.trip_two = (equipment.contains(CORRUPTED_HELM_BASIC) || equipment.contains(CRYSTAL_HELM_BASIC));
-        this.trip_two &= (equipment.contains(CORRUPTED_BODY_BASIC) || equipment.contains(CRYSTAL_BODY_BASIC));
-        this.trip_two &= (equipment.contains(CORRUPTED_LEGS_BASIC) || equipment.contains(CRYSTAL_LEGS_BASIC));
+        //this.trip_two = (equipment.contains(CORRUPTED_HELM_BASIC) || equipment.contains(CRYSTAL_HELM_BASIC));
+        //this.trip_two &= (equipment.contains(CORRUPTED_BODY_BASIC) || equipment.contains(CRYSTAL_BODY_BASIC));
+        //this.trip_two &= (equipment.contains(CORRUPTED_LEGS_BASIC) || equipment.contains(CRYSTAL_LEGS_BASIC));
 
         //Also check for t2 bow
         this.trip_two &= ((inventory.contains(CORRUPTED_BOW_ATTUNED) || (inventory.contains(CRYSTAL_BOW_ATTUNED)))
