@@ -364,7 +364,7 @@ public class CrystalPotatoPlugin extends Plugin{
         //this.trip_two &= (equipment.contains(CORRUPTED_LEGS_BASIC) || equipment.contains(CRYSTAL_LEGS_BASIC));
 
         //Also check for t2 bow
-        this.trip_two &= ((inventory.contains(CORRUPTED_BOW_ATTUNED) || (inventory.contains(CRYSTAL_BOW_ATTUNED)))
+        this.trip_two = ((inventory.contains(CORRUPTED_BOW_ATTUNED) || (inventory.contains(CRYSTAL_BOW_ATTUNED)))
                 || (equipment.contains(CORRUPTED_BOW_ATTUNED) || (equipment.contains(CRYSTAL_BOW_ATTUNED))));
 
 
